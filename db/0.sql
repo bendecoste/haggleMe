@@ -4,6 +4,15 @@ CREATE TABLE IF NOT EXISTS `item` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(64) NOT NULL,
+  `image` bigint,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `data` blob NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -12,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(64) NOT NULL,
+  `image` bigint,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
