@@ -23,7 +23,13 @@ app.configure(function() {
     layout: 'layout.html',
     pageTitle: ''
   });
+
+  // start polling the database for new haggles
 });
+
+setInterval(function() {
+  haggle.poll();
+}, 5000);
 
 app.post('/haggle/:pid([0-9]+)/:uid([0-9]+)/:price', haggle.post);
 app.get('/haggle/:pid([0-9]+)/:uid([0-9]+)', haggle.get);
