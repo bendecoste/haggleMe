@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS `item` (
   `max_price` decimal(20, 2),
   `extra_haggles` varchar(4),
   `image` bigint,
+  `min_price` float,
+  `max_price` float,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -35,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) NOT NULL,
   `password` varchar(64) NOT NULL,
   `image` bigint,
+  `haggles` bigint,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('ben', 'ben@goinstant.com', 'ben', 1);
