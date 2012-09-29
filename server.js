@@ -100,5 +100,11 @@ app.get('/item', function(req, res) {
   });
 });
 
+app.get('/products', function(req, res) {
+  renderTemplate(req, res, 'seller-products', {
+    pageTitle: 'Seller Products'
+  });
+});
+
 
 module.exports = app;
