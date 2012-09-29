@@ -20,24 +20,8 @@ image.get = function(req, res) {
   var id = req.params.id;
 
   DBG&&DBG("GET - id:", id);
-
-  dbClient.query("SELECT * FROM image WHERE id = ?", function(err, results) {
-    if (!results) results = [];
-    
-    if (err) {
-      DBG&&DBG("Error retrieving item info");
-      DBG&&DBG(err);
-      err = new Error("Server error: could not retrieve item info");
-    
-    } else if (results.length === 0) {
-      err = new Error("Invalid id: item does not exist.");
-    }
-
-    if (err) return res.json({'err': err, 'response': null}, 500);
-    fs.readFile("/images/" + imageId + ".jpg", body, function(err) {
-      if(err) return res.json(err, 500);
-      return res.json({ 'err': null, 'response': { 'id': imageId } });
-    });
+  res.sendfile(__dirname + "/upload_images/" + id + ".jpg", function(err) {
+    if(err) return res.json({ 'err': new Error("Image not found"), 'response': null }, 500);
   });
 };
 
