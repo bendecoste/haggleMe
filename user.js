@@ -26,16 +26,13 @@ user.get = function(req, res) {
     if (err) {
       DBG&&DBG("Error retrieving user info");
       DBG&&DBG(err);
-      err = new Error("Server error: could not retrieve user info", 500);
+      err = new Error("Server error: could not retrieve user info");
     
     } else if (results.length === 0) {
-      err = new Error("Invalid id: user does not exist.", 400);
+      err = new Error("Invalid id: user does not exist.");
     }
 
-    var retBody = { 'results' : results };
-    if (err) retBody.err = err;
-    
-    res.json(retBody, err ? err.retCode : 200);
+    res.json({'err': err, 'response': results}, err ? 500 : 200);
   });
 };
 
@@ -58,14 +55,19 @@ user.post = function(req, res) {
         if (err) {
           DBG&&DBG("Error creating user info");
           DBG&&DBG(err);
-          err = new Error("Server error: could not create new user info", 500);
+          err = new Error("Server error: could not create new user info");
         }
     
-        return res.json( { 'err': err, 'results': { 'id' : (err ? 0 : results.insertId), 'name' : (err ? null : user.name) } }, err ? 500 : 200);
+        return res.json({ 'err': err,
+          'response': [{
+            'id' : (err ? 0 : results.insertId),
+            'name' : (err ? null : user.name)
+          }]
+        }, err ? 500 : 200);
       });
 
     } catch(err) {
-      return res.json({ 'err': err }, 500);
+      return res.json({ 'err': err, 'response': null }, 500);
     }
   });
 };

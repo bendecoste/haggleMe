@@ -4,6 +4,7 @@ var path = require('path');
 var haggle = require('./haggle');
 var user = require('./user');
 var item = require('./item');
+var image = require('./image');
 
 const SERVER_PORT = 10000;
 
@@ -39,6 +40,9 @@ app.get('/item/:id([0-9]+)', item.get);
 
 app.post('/user/:id([0-9]+)', user.post);
 app.get('/user/:id([0-9]+)', user.get);
+
+app.post('/image/:id([0-9]+)', image.post);
+app.get('/image/:id([0-9]+)', image.get);
 
 app.listen(SERVER_PORT);
 console.log("HAGGLE server running on port", SERVER_PORT);
