@@ -1,3 +1,4 @@
+<script src='/js/haggle.js'></script>
 <div id="product">
 	<div class="fourcol">
 		<div class="product-img">
@@ -26,7 +27,7 @@
 			<div class="bid-box">
 				<p>price <span>$$300</span> <input type="submit" value="Buy it now" class="orange"/></p>
 				<p>or</p>
-				<p><input type="text" name="haggle-bid"/> <input type="submit" value="Haggle"/>
+				<p><input type="text" id='haggle-input' name="haggle-bid"/> <input type="submit" value="Haggle"/>
 			</div>
 
 			<div class="time">
@@ -39,7 +40,7 @@
 		</div>
 
 		<div class="haggle-message">
-			<p>I have kids to feed,&hellip; You can do better&hellip; but I’ll sweeten the deal</p>
+			<p id="message"></p>
 		</div>
 
 	</div>
