@@ -3,20 +3,23 @@
 <head>
   <title>Haggle</title>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <header>
   <div class="container">
     <div class="row">
-    <h1><a href="/" title="haggle.me">haggle.me</a></h1>
-    <ul>
-      <li><a href="/">Haggle</a></li>
-    </ul>
+      <div class="twelvecol">
+        <h1><a href="/" title="haggle.me">haggle.me</a></h1>
+        <ul>
+          <li><a href="/">Haggle</a></li>
+        </ul>
+      </div>
   </div>
 </header>
 <div class="container">
     <div id="content" class="row">
-      <% if (pageTitle) { %><h2><%= pageTitle %></h2><% } %>
+      <% if (pageTitle) { %><h1><%= pageTitle %></h1><% } %>
       <%- body %>
     </div>
 </div>

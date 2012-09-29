@@ -20,6 +20,7 @@ app.configure(function() {
   app.set('view engine', 'ejs');
   console.log('dirname', __dirname);
   app.use("/js", express.static(__dirname + '/js'));
+  app.use("/css", express.static(__dirname + '/css'));
 
   app.register('.html', require('ejs'));
   app.set('view options', {
