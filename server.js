@@ -75,6 +75,7 @@ app.get('/haggle', function(req, res) {
     pageTitle: 'Haggle.ME'
   });
 });
+
 app.get('/register', function(req, res) {
   renderTemplate(req, res, 'register', {
     pageTitle: 'Haggle.ME'
@@ -93,10 +94,11 @@ app.get('/profile', function(req, res) {
   });
 });
 
-app.get('/products', function(req, res) {
-  renderTemplate(req, res, 'seller-products', {
-    pageTitle: 'Seller Products'
+app.get('/item', function(req, res) {
+  renderTemplate(req, res, 'item', {
+    pageTitle: 'Haggle.ME'
   });
 });
+
 
 module.exports = app;
