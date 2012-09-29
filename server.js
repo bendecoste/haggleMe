@@ -6,6 +6,8 @@ var user = require('./user');
 var item = require('./item');
 var image = require('./image');
 
+var queue = require('./queue.js');
+
 const SERVER_PORT = 10000;
 
 var app = express.createServer();
