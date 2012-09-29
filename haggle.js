@@ -19,6 +19,7 @@ haggle.post = function(req, res) {
   req.on('end', function() {
     try {
       DBG&&DBG("POST: (" + pid + ", " + uid + "," + price + ")");
+      DBG&&DBG(" body: " + body);
 
       processPost(pid, uid, body, function(err, haggle) {
         var retBody ={
@@ -29,6 +30,7 @@ haggle.post = function(req, res) {
       });
 
     } catch(err) {
+      console.log('err', err);
       return res.json({ 'err': err }, 500);
     }
   });

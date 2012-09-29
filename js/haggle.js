@@ -16,16 +16,11 @@ $(function() {
 });
 
 function sendValue(val) {
-  console.log('value', val);
-  $.ajax({
-    url: window.location.host + '/haggle/:1/:1/:' + val
+
+  var x = $.ajax({
+    type: 'POST',
+    url: 'http://' + window.location.host + '/haggle/1/1/' + val
   });
 
-  $(window).ajaxStart(function() {
-    console.log('sent a request...');
-  });
-
-  $(window).ajaxStop(function() {
-    console.log('request answered');
-  });
+  console.log('x', x);
 }
