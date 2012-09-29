@@ -82,7 +82,7 @@ haggle.poll = function() {
       var startTime = Date.now(entry.startTime);
       var currTime = Date.now();
       if (startTime <= currTime && running) {
-        haggle.run(entry);
+        // haggle.run(entry);
       }
     });
   });
