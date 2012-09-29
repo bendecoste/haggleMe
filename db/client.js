@@ -3,6 +3,7 @@ var mysql = require('mysql');
 
 var connection = mysql.createClient({
   'host': 'localhost',
+  'user': 'goinstant',
   'database': 'haggle'
 });
 

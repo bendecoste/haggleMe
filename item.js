@@ -10,6 +10,7 @@ var dbClient = mysql.createClient({
     "host":"localhost",
     "port": 3306,
     "item":"goinstant",
+    'user': 'goinstant',
     "password":"",
     "database":"haggle"
 });
