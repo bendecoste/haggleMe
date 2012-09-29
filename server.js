@@ -18,6 +18,7 @@ app.configure(function() {
   app.set('view engine', 'ejs');
   console.log('dirname', __dirname);
   app.use("/js", express.static(__dirname + '/js'));
+  app.use("/", express.static(__dirname + '/'));
 
   app.register('.html', require('ejs'));
   app.set('view options', {
@@ -57,14 +58,12 @@ function renderTemplate(req, res, template, variables) {
     template = template + ".html";
   }
 
-  console.log('template', template);
-
   res.render(template, variables);
 }
 
 app.get('/', function(req, res) {
-  renderTemplate(req, res, 'landing', {
-    pageTitle: 'Haggle.ME'
+  renderTemplate(req, res, 'index', {
+    pageTitle: 'Haggle'
   });
 });
 

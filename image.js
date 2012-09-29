@@ -25,15 +25,19 @@ image.get = function(req, res) {
     if (!results) results = [];
     
     if (err) {
-      DBG&&DBG("Error retrieving image info");
+      DBG&&DBG("Error retrieving item info");
       DBG&&DBG(err);
-      err = new Error("Server error: could not retrieve image info", 500);
+      err = new Error("Server error: could not retrieve item info");
     
     } else if (results.length === 0) {
-      err = new Error("Invalid id: image does not exist.", 400);
+      err = new Error("Invalid id: item does not exist.");
     }
 
-    res.json(retBody, err ? err.retCode : 200);
+    if (err) return res.json({'err': err, 'response': null}, 500);
+    fs.readFile("/images/" + imageId + ".jpg", body, function(err) {
+      if(err) return res.json(err, 500);
+      return res.json({ 'err': null, 'response': { 'id': imageId } });
+    });
   });
 };
 
@@ -60,7 +64,7 @@ image.post = function(req, res) {
           return res.json(new Error("Server error: could not create new image"), 500);
         }
     
-        fs.writeFile("/images/" + imageId, body, function(err) {
+        fs.writeFile("/images/" + imageId + ".jpg", body, function(err) {
           if(err) return res.json(err, 500);
           return res.json({ 'err': null, 'response': { 'id': imageId } });
         });
