@@ -707,6 +707,49 @@ header nav ul li a:active {
 .block .twelvecol {
   padding: 10px;
 }
+.haggle {
+  float: left;
+  width: 100%;
+  background-color: #f7f7f7;
+  background-image: -moz-linear-gradient(top, rgba(247, 247, 247, 0), rgba(209, 209, 209, 0.5) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(247, 247, 247, 0)), color-stop(100%, rgba(209, 209, 209, 0.5)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(247, 247, 247, 0) 0%, rgba(209, 209, 209, 0.5) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(247, 247, 247, 0) 0%, rgba(209, 209, 209, 0.5) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(247, 247, 247, 0) 0%, rgba(209, 209, 209, 0.5) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(247, 247, 247, 0) 0%, rgba(209, 209, 209, 0.5) 100%);
+  /* W3C */
+
+  position: relative;
+}
+.haggle .haggles-reamining {
+  position: relative;
+}
+.haggle .haggles-remaining {
+  width: 20%;
+  float: left;
+  background: #dedede;
+  min-height: 100%;
+}
+.haggle .bid-box {
+  width: 50%;
+  float: left;
+}
+.haggle .time {
+  width: 30%;
+  float: left;
+  background: black;
+  color: white;
+}
 /* =============================================================================
    Non-Semantic Helper Classes
    ========================================================================== */
