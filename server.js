@@ -95,7 +95,7 @@ app.get('/profile', function(req, res) {
 });
 
 app.get('/item', function(req, res) {
-  renderTemplate(req, res, 'item', {
+  renderTemplate(req, res, 'haggle', {
     pageTitle: 'Haggle.ME'
   });
 });
