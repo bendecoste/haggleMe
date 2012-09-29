@@ -97,7 +97,7 @@ console.log(uid);
   });
 });
 
-app.get('/item', function(req, res) {
+app.get('/haggle', function(req, res) {
   renderTemplate(req, res, 'haggle', {
     pageTitle: 'Haggle.ME'
   });

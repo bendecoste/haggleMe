@@ -15,8 +15,6 @@ CREATE TABLE IF NOT EXISTS `item` (
   `max_price` decimal(20, 2),
   `extra_haggles` varchar(4),
   `image` bigint,
-  `min_price` float,
-  `max_price` float,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

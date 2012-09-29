@@ -1,26 +1,35 @@
-window.haggleMe = window.haggleMe || {};
-
-/* window.haggleMe.haggle = (function() { */
 $(function() {
-  $('#haggle-submit').click(function(evt) {
-    var value = $('#haggle-enter').val();
-    value = parseInt(value, 10);
-
-    if (!value) {
-      // do something with the ui
-      return;
+  $('#haggle-input').keypress(function(evt) {
+    if (evt.keyCode === 13) {
+      haggle();
     }
-
-    sendValue(value);
   });
 });
 
-function sendValue(val) {
+var time = 35;
 
-  var x = $.ajax({
+setInterval(function() {
+  if (time <= 30 && time >= 0) {
+    document.getElementsByClassName('count')[0].innerText = time;
+  }
+
+  --time;
+}, 1000);
+
+function haggle() {
+  value = $('#haggle-input').val();
+  makeXHR(value);
+}
+
+function makeXHR(val) {
+  console.log('val', val);
+  var ajax = $.ajax({
     type: 'POST',
     url: 'http://' + window.location.host + '/haggle/1/1/' + val
   });
 
-  console.log('x', x);
+  ajax.success(function(res) {
+    console.log('response', res, res.responseText);
+    document.getElementById('message').innerText = res;
+  });
 }
