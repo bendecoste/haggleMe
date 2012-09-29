@@ -88,9 +88,12 @@ app.get('/create', function(req, res) {
   });
 });
 
-app.get('/profile', function(req, res) {
+app.get('/profile/:uid([0-9]+)', function(req, res) {
+  var uid = req.params.uid;
+console.log(uid);
   renderTemplate(req, res, 'seller-profile', {
-    pageTitle: 'Seller Profile'
+    pageTitle: 'Seller Profile',
+    userId: uid
   });
 });
 
