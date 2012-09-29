@@ -10,7 +10,6 @@
 
 /* Typography */
 
-
 body {
 font-family: Helvetica;
 font-size: @baseFontSize;
@@ -98,35 +97,40 @@ form {
 		margin-top: 0.5em;
 		margin-bottom: 0.5em;
 	}
+}
 
-	label {
-		font-weight: bold;
-		color: @textColor;
+label {
+	font-weight: bold;
+	color: @textColor;
+}
+
+input,
+textarea {
+	width: 100%;
+	.box-shadow(none);
+	-webkit-appearance: none;
+	border: 1px solid @grayLight;
+	padding: 0.5em 0;
+
+	&[type="number"],
+	&[type="checkbox"],
+	&[type="radio"],
+	&[type="submit"] {
+		width: auto;
 	}
 
-	input,
-	textarea {
-		width: 100%;
-		.box-shadow(none);
-		-webkit-appearance: none;
-		border: 1px solid @grayLight;
-		padding: 0.5em 0;
+	&[type="file"] {
+		border: none;
+	}
 
-		&[type="number"],
-		&[type="checkbox"],
-		&[type="radio"],
-		&[type="submit"] {
-			width: auto;
-		}
+	&[type="submit"] {
+		background: @green;
+		float: right;
+		.buttonBase(@green);
 
-		&[type="file"] {
-			border: none;
-		}
-
-		&[type="submit"] {
-			background: @green;
-			float: right;
-			.buttonBase(@green);
+		&.orange {
+			.buttonBase(@orange);
+			color: @textColor;
 		}
 	}
 }
@@ -288,32 +292,92 @@ header {
 	}
 }
 
+.product-img,
+.seller-info {
+	.rounded(8px);
+	.box-shadow(0 2px 6px rgba(0,0,0,0.25));
+}
+
+.seller-info {
+	h3 {
+		padding: 10px;
+	}
+}
+
 .haggle {
 	float: left;
 	width: 100%;
 	.gradient(lighten(@grayLight, 15%), @grayLight);
 	position: relative;
 
-	.haggles-reamining {
+	.haggles-reamining,
+	.bid-box,
+	.time {
 		position: relative;
 	} 
 
 	.haggles-remaining {
 		width: 20%;
 		float: left;
-		background: lighten(@grayLight, 5%);
+		background: #8c8c8c;
 		min-height: 100%;
+		color: white;
+		font-size: 1.25em;
+		text-align: center;
+		padding-top: 3.25em;
+
+		strong {
+			font-size: 3em;
+			margin-bottom: 0.5em;
+			display: block;
+		}
+
+		* {
+			padding: 10px;
+		}
 	}
 
 	.bid-box {
 		width: 50%;
 		float: left;
+		padding: 10px;
+		color: @gray;
+
+		input {
+			&[type="text"] {
+				max-width: 5em;
+			}
+		}
+
+		span {
+			color: black;
+			font-size: 1.25em;
+		}
 	}
 
 	.time {
 		width: 30%;
 		float: left;
 		background: black;
+		color: white;
+		padding: 10px;
+		font-size: 1.25em;
+		text-align: center;
+
+		h2 {
+			color: white;
+			margin: 0 0 0.5em;
+			font-size: 2em;
+			font-weight: normal;
+		}
+
+		span {
+			font-size: 4em;
+		}
+	}
+
+	#message {
+		background-color: @red;
 		color: white;
 	}
 }
