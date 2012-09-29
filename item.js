@@ -21,7 +21,7 @@ item.get = function(req, res) {
 
   DBG&&DBG("GET - id:", id);
 
-  dbClient.query("SELECT * FROM item WHERE id = ?", function(err, results) {
+  dbClient.query("SELECT * FROM item WHERE id = ?", [id], function(err, results) {
     if (!results) results = [];
     
     if (err) {
@@ -39,38 +39,29 @@ item.get = function(req, res) {
 
 // POST - Add a new item to the db
 item.post = function(req, res) {
-  DBG&&DBG("POST (begin):");
+  DBG&&DBG("POST");
 
-  var body = "";
-  req.on('data', function(chunk) {
-      DBG&&DBG("(data)", chunk);
-    body += chunk;
-  });
+  var item = req.body;
+  try {
+    DBG&&DBG(" body: " + item);
 
-  req.on('end', function() {
-    try {
-      DBG&&DBG("POST (with data)");
-      DBG&&DBG(" body: " + body);
+    dbClient.query("INSERT INTO item (name) VALUES (?)", [item.name], function(err, results) {
+      if (err) {
+        DBG&&DBG("Error creating item info");
+        DBG&&DBG(err);
+        err = new Error("Server error: could not create new item info");
+      }
+  
+      return res.json({ 'err': err,
+        'response': [{
+          'id' : (err ? 0 : results.insertId),
+          'name' : (err ? null : item.name)
+        }]
+      }, err ? 500 : 200);
+    });
 
-      var item = JSON.parse(body);
-      dbClient.query("INSERT INTO item (name) VALUES (?)", [item.name], function(err, results) {
-        if (err) {
-          DBG&&DBG("Error creating item info");
-          DBG&&DBG(err);
-          err = new Error("Server error: could not create new item info");
-        }
-    
-        return res.json({ 'err': err,
-          'response': [{
-            'id' : (err ? 0 : results.insertId),
-            'name' : (err ? null : item.name)
-          }]
-        }, err ? 500 : 200);
-      });
-
-    } catch(err) {
-      return res.json({ 'err': err, 'response': null }, 500);
-    }
-  });
+  } catch(err) {
+    return res.json({ 'err': err, 'response': null }, 500);
+  }
 };
 
