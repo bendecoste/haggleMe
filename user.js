@@ -20,7 +20,7 @@ user.get = function(req, res) {
 
   DBG&&DBG("GET - id:", id);
 
-  dbClient.query("SELECT * FROM user WHERE id = ?", function(err, results) {
+  dbClient.query("SELECT * FROM user WHERE id = ?", [id], function(err, results) {
     if (!results) results = [];
     
     if (err) {
@@ -38,37 +38,33 @@ user.get = function(req, res) {
 
 // POST - Add a new user to the db
 user.post = function(req, res) {
-  DBG&&DBG("POST:");
+  DBG&&DBG("POST");
 
-  var body = "";
-  req.on('data', function(chunk) {
-    body += chunk;
-  });
+  var user = req.body;
+  try {
+    DBG&&DBG(" body:", user);
 
-  req.on('end', function() {
-    try {
-      DBG&&DBG("POST");
-      DBG&&DBG(" body: " + body);
+    dbClient.query("INSERT INTO user (`username`, `email`, `password`, `image`) VALUES (?, ?, ?, ?)",
+        [user.username ? user.username : "no name supplied",
+        user.email ? user.email : "no email supplied",
+        user.password ? user.password : "no password supplied",
+        0], function(err, results) {
+      if (err) {
+        DBG&&DBG("Error creating user info");
+        DBG&&DBG(err);
+        err = new Error("Server error: could not create new user info");
+      }
+ 
+      return res.json({ 'err': err,
+        'response': [{
+          'id' : (err ? 0 : results.insertId),
+          'username' : (err ? null : user.username)
+        }]
+      }, err ? 500 : 200);
+    });
 
-      var user = JSON.parse(body);
-      dbClient.query("INSERT INTO user (name) VALUES (?)", [user.name], function(err, results) {
-        if (err) {
-          DBG&&DBG("Error creating user info");
-          DBG&&DBG(err);
-          err = new Error("Server error: could not create new user info");
-        }
-    
-        return res.json({ 'err': err,
-          'response': [{
-            'id' : (err ? 0 : results.insertId),
-            'name' : (err ? null : user.name)
-          }]
-        }, err ? 500 : 200);
-      });
-
-    } catch(err) {
-      return res.json({ 'err': err, 'response': null }, 500);
-    }
-  });
+  } catch(err) {
+    return res.json({ 'err': err, 'response': null }, 500);
+  }
 };
 

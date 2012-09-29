@@ -31,11 +31,16 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `name` varchar(64) NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `image` bigint,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('ben', 'ben@goinstant.com', 'ben', 1);
+INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('gordie', 'gordie@goinstant.com', 'gordie', 2);
+INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('chris', 'chris@alltimelowe.com', 'chris', 3);
+INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('eran', 'eran@springleap.com', 'eran', 4);
 
 DROP TABLE IF EXISTS `queue`;
 CREATE TABLE IF NOT EXISTS `queue` (
