@@ -396,7 +396,7 @@ embed {
 /* Typography */
 body {
   font-family: Helvetica;
-  font-size: 1em;
+  font-size: 0.875em;
   line-height: 1.5em;
   color: #424151;
 }
@@ -426,9 +426,8 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  font-weight: 300;
+  font-weight: bold;
   color: #424151;
-  font-family: Georgia, serif;
 }
 h1 a,
 h2 a,
@@ -439,20 +438,20 @@ h6 a {
   text-decoration: none;
 }
 h1 {
-  font-size: 1.75em;
-  line-height: 0.8571428571428571em;
-  margin: 0.5714285714285714em 0;
+  font-size: 1.53125em;
+  line-height: 0.9795918367346939em;
+  margin: 0.6530612244897959em 0;
 }
 h2 {
-  font-size: 1.3125em;
-  line-height: 1.1428571428571428em;
-  margin: 1.1428571428571428em 0 0;
+  font-size: 1.1484375em;
+  line-height: 1.3061224489795917em;
+  margin: 1.3061224489795917em 0 0;
 }
 h3 {
-  font-size: 1.125em;
-  line-height: 1.3333333333333333em;
+  font-size: 0.984375em;
+  line-height: 1.5238095238095237em;
   font-weight: 700;
-  margin: 1.3333333333333333em 0 0.3333333333333333em;
+  margin: 1.5238095238095237em 0 0.38095238095238093em;
 }
 h4 {
   margin: 0;
@@ -469,12 +468,105 @@ ul,
 ol {
   margin: 0.75em 0;
 }
+/* Forms */
+form .fourcol,
+form .eightcol,
+form .twelvecol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+form label {
+  font-weight: bold;
+  color: #424151;
+}
+form input,
+form textarea {
+  width: 100%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border: 1px solid #d1d1d1;
+  padding: 0.5em 0;
+}
+form input[type="number"],
+form textarea[type="number"],
+form input[type="checkbox"],
+form textarea[type="checkbox"],
+form input[type="radio"],
+form textarea[type="radio"],
+form input[type="submit"],
+form textarea[type="submit"] {
+  width: auto;
+}
+form input[type="file"],
+form textarea[type="file"] {
+  border: none;
+}
+form input[type="submit"],
+form textarea[type="submit"] {
+  background: #99cc00;
+  float: right;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background-color: #99cc00;
+  background-image: -moz-linear-gradient(top, rgba(153, 204, 0, 0), rgba(115, 153, 0, 0.5) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(153, 204, 0, 0)), color-stop(100%, rgba(115, 153, 0, 0.5)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(153, 204, 0, 0) 0%, rgba(115, 153, 0, 0.5) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(153, 204, 0, 0) 0%, rgba(115, 153, 0, 0.5) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(153, 204, 0, 0) 0%, rgba(115, 153, 0, 0.5) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(153, 204, 0, 0) 0%, rgba(115, 153, 0, 0.5) 100%);
+  /* W3C */
+
+  -webkit-text-shadow: #000000;
+  -moz-text-shadow: #000000;
+  text-shadow: #000000;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  display: inline-block;
+  padding: 0.75em;
+  margin: 0 2px 4px;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  text-decoration: none;
+}
+form input[type="submit"]:hover,
+form textarea[type="submit"]:hover,
+form input[type="submit"]:focus,
+form textarea[type="submit"]:focus {
+  -webkit-box-shadow: inset 0 2px 3px #739900;
+  -moz-box-shadow: inset 0 2px 3px #739900;
+  box-shadow: inset 0 2px 3px #739900;
+}
 /* Layout */
 header h1 {
   float: left;
 }
+header .welcome {
+  float: left;
+  font-size: 0.75em;
+  margin: 2.625em 0 0 0.5em;
+}
 header nav {
   float: right;
+  margin-top: 2.25em;
 }
 header nav ul li {
   float: left;
@@ -517,13 +609,103 @@ header nav ul li a:active {
   -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
-.cover a {
+.cover .avatar {
   display: block;
   position: relative;
-  bottom: -50%;
+  margin-top: -120px;
+  left: 20px;
+  padding: 10px;
+  background: white;
+  float: left;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
-.cover a img {
+.cover .avatar img {
   display: block;
+}
+.cover nav ul {
+  float: right;
+  margin-top: 1em;
+}
+.cover nav ul li {
+  float: left;
+  margin-left: 1em;
+}
+.cover nav ul li a {
+  display: block;
+  padding: 1em 2em 0.25em 0.5em;
+  background: #d1d1d1;
+  color: #424151;
+}
+.cover nav ul li a:hover,
+.cover nav ul li a:focus {
+  background: #99cc00;
+  color: #263300;
+}
+.cover nav ul li.current a {
+  background: transparent;
+  text-decoration: underline;
+}
+.haggling-settings {
+  width: 99%;
+  background: #f0f0f0;
+  float: left;
+  padding: 10px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0.5em 0.5% 1.5em;
+}
+.haggling-settings h3 {
+  margin: 0;
+}
+.block {
+  border: 1px solid #d1d1d1;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  margin-top: 0.75em;
+}
+.block h2 {
+  font-weight: normal;
+  margin: 0;
+  padding: 5px 10px;
+  background: #ebebeb;
+  -webkit-border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-bottom: 1px solid #d1d1d1;
+}
+.block h3 {
+  font-weight: normal;
+  margin: 0;
+  padding: 5px 10px;
+  background: #f2f2f2;
+  border-bottom: 1px solid #d1d1d1;
+}
+.block .fourcol,
+.block .eightcol,
+.block .twelvecol {
+  padding: 10px;
 }
 /* =============================================================================
    Non-Semantic Helper Classes

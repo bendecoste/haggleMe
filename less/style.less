@@ -39,9 +39,8 @@ text-decoration: none;
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
-	font-weight: 300;
+	font-weight: bold;
 	color: @headerColor;
-	font-family: Georgia, serif;
 
 	a {
 		text-decoration: none;
@@ -89,6 +88,49 @@ em {}
 
 blockquote {}
 
+/* Forms */
+
+form {
+
+	.fourcol,
+	.eightcol,
+	.twelvecol {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	label {
+		font-weight: bold;
+		color: @textColor;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		.box-shadow(none);
+		-webkit-appearance: none;
+		border: 1px solid @grayLight;
+		padding: 0.5em 0;
+
+		&[type="number"],
+		&[type="checkbox"],
+		&[type="radio"],
+		&[type="submit"] {
+			width: auto;
+		}
+
+		&[type="file"] {
+			border: none;
+		}
+
+		&[type="submit"] {
+			background: @green;
+			float: right;
+			.buttonBase(@green);
+		}
+	}
+}
+
 /* Layout */
 
 header {
@@ -97,8 +139,15 @@ header {
 		float: left;
 	}
 
+	.welcome {
+		float: left;
+		font-size: 0.75em;
+		margin: 2.625em 0 0 0.5em;
+	}
+
 	nav {
 		float: right;
+		margin-top: 2.25em;
 
 		ul {
 			li {
@@ -146,18 +195,98 @@ header {
 		.box-shadow(0 2px 6px rgba(0,0,0,0.25));
 	}
 
-	a {
+	.avatar {
 		display: block;
 		position: relative;
-		bottom: -50%;
+		margin-top: -120px;
+		left: 20px;
+		padding: 10px;
+		background: white;
+		float: left;
+		.rounded(8px);
+		.box-shadow(0 1px 2px rgba(0,0,0,0.25));
 
 		img {
 			display: block;
 		}
 	}
+
+	nav {
+		ul {
+			float: right;
+			margin-top: 1em;
+
+			li {
+				float: left;
+				margin-left: 1em;
+
+				a {
+					display: block;
+					padding: 1em 2em 0.25em 0.5em;
+					background: @grayLight;
+					color: @textColor;
+
+					&:hover,
+					&:focus {
+						background: @green;
+						color: darken(@green, 30%);
+					}
+				}
+
+				&.current {
+
+					a {
+						background: transparent;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
 }
 
+.haggling-settings {
+	width: 99%;
+	background: lighten(@grayLight, 12%);
+	float: left;
+	padding: 10px;
+	.rounded(8px);
+	.box-shadow(0 2px 4px rgba(0,0,0,0.2));
+	margin: 0.5em 0.5% 1.5em;
 
+	h3 {
+		margin: 0;
+	}
+}
+
+.block {
+	border: 1px solid @grayLight;
+	.rounded(8px);
+	margin-top: 0.75em;
+
+	h2 {
+		font-weight: normal;
+		margin: 0;
+		padding: 5px 10px;
+		background: lighten(@grayLight, 10%);
+		.rounded(8px 8px 0 0);
+		border-bottom: 1px solid @grayLight;
+	}
+
+	h3 {
+		font-weight: normal;
+		margin: 0;
+		padding: 5px 10px;
+		background: lighten(@grayLight, 13%);
+		border-bottom: 1px solid @grayLight;
+	}
+
+	.fourcol,
+	.eightcol,
+	.twelvecol {
+		padding: 10px;
+	}
+}
 
 
 

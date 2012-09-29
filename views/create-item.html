@@ -1,19 +1,47 @@
-<div class="twelvecol">
-	<p><a href="/profile">Return to profile</a></p>
+<div id="profile-card" class="twelvecol">
+	<div class="cover">
+		<img src="/img/eran-cover.jpg" class="cover-img" alt="iPhone 5 Store"/>
+		<a class="avatar" href="#"><img src="/img/eran.jpg" alt=""/></a>
+		<nav>
+			<ul>
+				<li class="current"><a href="/profile">Seller Info</a></li>
+				<li><a href="/products">Products</a></li>
+			</ul>
+		</nav>
+	</div>
 </div>
+
 <form method="post" action="/item">
-	<div class="twelvecol">
 
+	<div class="fourcol">
 		<label for="name">Item Name</label>
+	</div>
+
+	<div class="eightcol last"	>
 		<input type="text" id="name" name="name"/>
+	</div>
 
+	<div class="fourcol">
 		<label for="description">Description</label>
+	</div>
+
+	<div class="eightcol last">
 		<textarea id="description" name="description" rows="6"></textarea>
+	</div>
 
+	<div class="fourcol">
 		<label for="quantity">Quantity</label>
-		<input type="text" id="quantity" name="quantity"/>
+	</div>
 
+	<div class="eightcol last">
+		<input type="text" id="quantity" name="quantity"/>
+	</div>
+
+	<div class="fourcol">
 		<label for="condition">Condition</label>
+	</div>
+
+	<div class="eightcol last">
 		<select id="condition" name="condition" title="Condition">
 			<option value="-1">Select Condition</option>
 			<option selected="selected" value="Brand New">Brand New</option>
@@ -22,8 +50,13 @@
 			<option value="Good">Good</option>
 			<option value="Acceptable">Acceptable</option>
 		</select>
+	</div>
 
+	<div class="fourcol">
 		<label for="location">Location</label>
+	</div>
+
+	<div class="eightcol last">
 		<select id="location" name="location"> 
 			<option value="" selected="selected">Select Country</option> 
 			<option selected="selected" value="United States">United States</option> 
@@ -268,8 +301,13 @@
 			<option value="Zambia">Zambia</option> 
 			<option value="Zimbabwe">Zimbabwe</option>
 		</select>
+	</div>
 
+	<div class="fourcol">
 		<label for="shipping">Ship to</label>
+	</div>
+
+	<div class="eightcol last">
 		<select id="shipping" name="shipping"> 
 			<option value="" selected="selected">Select Country</option> 
 			<option selected="selected" value="United States">United States</option> 
@@ -514,19 +552,40 @@
 			<option value="Zambia">Zambia</option> 
 			<option value="Zimbabwe">Zimbabwe</option>
 		</select>
-
-		<label for="img">Item Image</label>
-		<input type="file" name="img" id="img"/>
-
-		<label for="min_price">Minimum Price</label>
-		<input type="number" id="min_price" name="min_price"/>
-
-		<label for="max_price">Maximium Price</label>
-		<input type="number" id="max_price" name="max_price"/>
-
-		<label for="extra_haggles">Allow extra haggles</label>
-		<input type="checkbox" name="extra_haggles"/>
-
-		<input type="submit" value="Publish Item"/>
 	</div>
+
+	<div class="fourcol">
+		<label for="img">Product Image</label>
+	</div>
+
+	<div class="eightcol last">
+		<input type="file" name="img" id="img"/>
+	</div>
+
+	<div class="haggling-settings">
+		<h3>Haggling Settings</h3>
+		<div class="fourcol">
+			<label for="min_price">Minimum Price</label>
+		</div>
+
+		<div class="eightcol last">
+			<input type="number" id="min_price" name="min_price"/>
+		</div>
+
+		<div class="fourcol">
+			<label for="max_price">Maximium Price</label>
+		</div>
+
+		<div class="eightcol last">
+			<input type="number" id="max_price" name="max_price"/>
+		</div>
+
+		<div class="twelvecol">
+			<label for="extra_haggles">Allow extra haggles</label>
+			<input type="checkbox" name="extra_haggles"/>
+		</div>
+
+	</div>
+
+	<input type="submit" value="Publish Item"/>
 </form>
