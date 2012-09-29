@@ -44,6 +44,10 @@ app.get('/user/:id([0-9]+)', user.get);
 app.post('/image/:id([0-9]+)', image.post);
 app.get('/image/:id([0-9]+)', image.get);
 
+// queueId/productId/userId
+app.post('/queue/:pid([0-9]+)/:uid([0-9]+)', queue.post);
+app.get('/queue/:pid([0-9]+)', queue.get);
+
 app.listen(SERVER_PORT);
 console.log("HAGGLE server running on port", SERVER_PORT);
 
