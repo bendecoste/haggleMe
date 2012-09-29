@@ -504,6 +504,7 @@ header nav ul li a:active {
 /* Seller Profile */
 .cover {
   padding: 2px;
+  position: relative;
 }
 .cover .cover-img {
   -webkit-border-radius: 8px;
@@ -518,6 +519,8 @@ header nav ul li a:active {
 }
 .cover a {
   display: block;
+  position: relative;
+  bottom: -50%;
 }
 .cover a img {
   display: block;
