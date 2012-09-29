@@ -21,6 +21,7 @@ app.configure(function() {
   console.log('dirname', __dirname);
   app.use("/js", express.static(__dirname + '/js'));
   app.use("/css", express.static(__dirname + '/css'));
+  app.use("/img", express.static(__dirname + '/img'));
 
   app.register('.html', require('ejs'));
   app.set('view options', {
@@ -83,6 +84,12 @@ app.get('/register', function(req, res) {
 app.get('/create', function(req, res) {
   renderTemplate(req, res, 'create-item', {
     pageTitle: 'Create New Item'
+  });
+});
+
+app.get('/profile', function(req, res) {
+  renderTemplate(req, res, 'seller-profile', {
+    pageTitle: 'Seller Profile'
   });
 });
 

@@ -15,12 +15,13 @@ body {
 font-family: Helvetica;
 font-size: @baseFontSize;
 line-height: @baseLineHeight;
-color: black;
+color: @textColor;
 }
 
 a {
 color: @linkColor;
 .transition (0.2s linear);
+text-decoration: none;
 	
 	&:visited {
 		color: @linkColor;
@@ -88,34 +89,70 @@ em {}
 
 blockquote {}
 
-/* Typekit */
+/* Layout */
 
-.wf-active {
-	
-	body {
-		font-family: @MuseoSlab;
+header {
+
+	h1 {
+		float: left;
 	}
-	
-	h1, h2, h3, h4, h5, h6 {
-		font-family: @MuseoSlab;
+
+	nav {
+		float: right;
+
+		ul {
+			li {
+				float: left;
+				padding: 0 0.5em;
+				border: 1px solid #888;
+				border-style: none none none solid;
+				line-height: 0.75em;
+
+				&:first-child {
+					border: none;
+				}
+
+				a {
+					font-size: 0.75em;
+					font-weight: bold;
+					color: @textColor;
+
+					&:visited {
+						color: @textColor;
+					}
+
+					&:hover,
+					&:focus {
+						color: @green;
+					}
+
+					&:active {
+						color: darken(@green, 10%);
+					}
+				}
+			}
+		}
 	}
 }
 
+/* Seller Profile */
 
+.cover {
+	padding: 2px;
 
+	.cover-img {
+		.rounded(8px);
+		.box-shadow(0 2px 6px rgba(0,0,0,0.25));
+	}
 
+	a {
+		display: block;
 
-
-
-
-
-
-
-
-
-
-
-
+		img {
+			display: block;
+		}
+	}
+}
 
 
 

@@ -256,10 +256,9 @@ td {
   padding: 0.2em 0;
 }
 /* Links */
+/* CI Colors */
 /* Grays */
 /* Typography */
-/* Weights (modeled after typekit) */
-@black 900;
 /* Buttons */
 /* Input placeholder text color */
 /* Hr border color */
@@ -280,8 +279,7 @@ td {
 }
 .row {
   width: 100%;
-  max-width: 1140px;
-  min-width: 755px;
+  max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -400,7 +398,7 @@ body {
   font-family: Helvetica;
   font-size: 1em;
   line-height: 1.5em;
-  color: black;
+  color: #424151;
 }
 a {
   color: #0000ff;
@@ -408,6 +406,7 @@ a {
   -moz-transition: 0.2s linear 0.2s linear;
   -o-transition: 0.2s linear 0.2s linear;
   transition: 0.2s linear 0.2s linear;
+  text-decoration: none;
 }
 a:visited {
   color: #0000ff;
@@ -428,7 +427,7 @@ h5,
 h6 {
   font-weight: normal;
   font-weight: 300;
-  color: #000000;
+  color: #424151;
   font-family: Georgia, serif;
 }
 h1 a,
@@ -470,17 +469,58 @@ ul,
 ol {
   margin: 0.75em 0;
 }
-/* Typekit */
-.wf-active body {
-  font-family: "museo-slab", serif;
+/* Layout */
+header h1 {
+  float: left;
 }
-.wf-active h1,
-.wf-active h2,
-.wf-active h3,
-.wf-active h4,
-.wf-active h5,
-.wf-active h6 {
-  font-family: "museo-slab", serif;
+header nav {
+  float: right;
+}
+header nav ul li {
+  float: left;
+  padding: 0 0.5em;
+  border: 1px solid #888;
+  border-style: none none none solid;
+  line-height: 0.75em;
+}
+header nav ul li:first-child {
+  border: none;
+}
+header nav ul li a {
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #424151;
+}
+header nav ul li a:visited {
+  color: #424151;
+}
+header nav ul li a:hover,
+header nav ul li a:focus {
+  color: #99cc00;
+}
+header nav ul li a:active {
+  color: #739900;
+}
+/* Seller Profile */
+.cover {
+  padding: 2px;
+}
+.cover .cover-img {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.cover a {
+  display: block;
+}
+.cover a img {
+  display: block;
 }
 /* =============================================================================
    Non-Semantic Helper Classes
