@@ -92,6 +92,8 @@ app.get('/profile', function(req, res) {
   renderTemplate(req, res, 'seller-profile', {
     pageTitle: 'Seller Profile'
   });
+});
+
 app.get('/item', function(req, res) {
   renderTemplate(req, res, 'item', {
     pageTitle: 'Haggle.ME'
