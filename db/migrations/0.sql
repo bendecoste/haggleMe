@@ -41,9 +41,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('ben', 'ben@goinstant.com', 'ben', 1);
+INSERT INTO image () VALUES ();
 INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('gordie', 'gordie@goinstant.com', 'gordie', 2);
+INSERT INTO image () VALUES ();
 INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('chris', 'chris@alltimelowe.com', 'chris', 3);
+INSERT INTO image () VALUES ();
 INSERT INTO user (`username`, `email`, `password`, `image`) VALUES ('eran', 'eran@springleap.com', 'eran', 4);
+INSERT INTO image () VALUES ();
 
 DROP TABLE IF EXISTS `queue`;
 CREATE TABLE IF NOT EXISTS `queue` (
