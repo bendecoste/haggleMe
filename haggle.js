@@ -68,7 +68,6 @@ haggle.get = function(req, res) {
 };
 
 haggle.poll = function() {
-  console.log('POLLING FROM DATABASE');
   var sql = 'SELECT id, start_time, status ' +
             'FROM haggle ';
 

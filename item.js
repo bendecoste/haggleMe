@@ -38,16 +38,17 @@ item.get = function(req, res) {
 
 // POST - Add a new item to the db
 item.post = function(req, res) {
-  DBG&&DBG("POST:");
+  DBG&&DBG("POST (begin):");
 
   var body = "";
   req.on('data', function(chunk) {
+      DBG&&DBG("(data)", chunk);
     body += chunk;
   });
 
   req.on('end', function() {
     try {
-      DBG&&DBG("POST");
+      DBG&&DBG("POST (with data)");
       DBG&&DBG(" body: " + body);
 
       var item = JSON.parse(body);

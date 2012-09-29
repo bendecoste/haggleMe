@@ -20,7 +20,6 @@ app.configure(function() {
   app.set('view engine', 'ejs');
   console.log('dirname', __dirname);
   app.use("/js", express.static(__dirname + '/js'));
-  app.use("/", express.static(__dirname + '/'));
 
   app.register('.html', require('ejs'));
   app.set('view options', {
@@ -38,7 +37,7 @@ setInterval(function() {
 app.post('/haggle/:pid([0-9]+)/:uid([0-9]+)/:price', haggle.post);
 app.get('/haggle/:pid([0-9]+)/:uid([0-9]+)', haggle.get);
 
-app.post('/item/:id([0-9]+)', item.post);
+app.post('/item', item.post);
 app.get('/item/:id([0-9]+)', item.get);
 
 app.post('/user/:id([0-9]+)', user.post);
@@ -75,9 +74,14 @@ app.get('/haggle', function(req, res) {
   });
 });
 app.get('/register', function(req, res) {
-  console.log('hehehe');
   renderTemplate(req, res, 'register', {
     pageTitle: 'Haggle.ME'
+  });
+});
+
+app.get('/create', function(req, res) {
+  renderTemplate(req, res, 'create-item', {
+    pageTitle: 'Create New Item'
   });
 });
 
