@@ -6,6 +6,14 @@ CREATE TABLE IF NOT EXISTS `item` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(64) NOT NULL,
+  `description` varchar(255),
+  `quantity` int,
+  `condition` varchar(32),
+  `location` varchar(64),
+  `shipping` varchar(64),
+  `min_price` decimal(20, 2),
+  `max_price` decimal(20, 2),
+  `extra_haggles` varchar(4),
   `image` bigint,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

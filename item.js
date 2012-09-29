@@ -43,15 +43,25 @@ item.post = function(req, res) {
 
   var item = req.body;
   try {
-    DBG&&DBG(" body: " + item);
+    DBG&&DBG(" body:", item);
 
-    dbClient.query("INSERT INTO item (name) VALUES (?)", [item.name], function(err, results) {
+    dbClient.query("INSERT INTO item (`name`, `description`, `quantity`, `condition`, `location`, `shipping`, `min_price`, `max_price`, `extra_haggles`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [item.name ? item.name : "no name supplied",
+        item.description ? item.description : "no description supplied",
+        item.quantity ? item.quantity : 1,
+        item.condition ? item.condition : "",
+        item.location ? item.location : "",
+        item.shipping ? item.shipping : "",
+        item.min_price ? item.min_price : 0,
+        item.max_price ? item.max_price : 0,
+        item.extra_haggles ? item.extra_haggles : 'no',
+        0], function(err, results) {
       if (err) {
         DBG&&DBG("Error creating item info");
         DBG&&DBG(err);
         err = new Error("Server error: could not create new item info");
       }
-  
+ 
       return res.json({ 'err': err,
         'response': [{
           'id' : (err ? 0 : results.insertId),
