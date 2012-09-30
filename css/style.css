@@ -895,9 +895,30 @@ header nav ul li a:active {
 .haggle .time span {
   font-size: 4em;
 }
-.haggle #message {
-  background-color: #ff0000;
+.haggle-message {
   color: white;
+  display: block;
+  padding: 0 10px;
+  overflow: hidden;
+  background-color: #ff0000;
+  background-image: -moz-linear-gradient(top, rgba(255, 0, 0, 0), rgba(230, 0, 0, 0.5) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 0, 0, 0)), color-stop(100%, rgba(230, 0, 0, 0.5)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 0%, rgba(230, 0, 0, 0.5) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(255, 0, 0, 0) 0%, rgba(230, 0, 0, 0.5) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(255, 0, 0, 0) 0%, rgba(230, 0, 0, 0.5) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(255, 0, 0, 0) 0%, rgba(230, 0, 0, 0.5) 100%);
+  /* W3C */
+
 }
 /* =============================================================================
    Non-Semantic Helper Classes
