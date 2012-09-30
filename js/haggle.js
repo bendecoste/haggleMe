@@ -4,6 +4,9 @@ $(function() {
       haggle();
     }
   });
+  $('#haggle-submit').click(function() {
+    haggle();
+  });
 });
 
 var time = 35;
