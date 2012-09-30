@@ -296,11 +296,18 @@ header {
 .seller-info {
 	.rounded(8px);
 	.box-shadow(0 2px 6px rgba(0,0,0,0.25));
+	margin: 2px;
 }
 
 .seller-info {
+	margin-top: 1.5em ;
+
 	h3 {
+		.rounded(8px 8px 0 0);
+		margin: 0;
 		padding: 10px;
+		background: lighten(@grayLight, 13%);
+		border-bottom: 1px solid @grayLight;
 	}
 }
 
@@ -366,16 +373,24 @@ header {
 
 		h2 {
 			color: white;
-			margin: 0 0 0.5em;
+			margin: 0 0 0.75em;
 			font-size: 2em;
 			font-weight: normal;
 		}
 
 		span {
-			font-size: 4em;
+			font-size: 3.5em;
 		}
 	}
 
+}
+
+#product {
+	.time {
+		h2 {
+			margin-bottom: 0.5em;
+		}
+	}
 }
 
 	.haggle-message {
@@ -387,7 +402,20 @@ header {
 		.gradient(@red, darken(@red, 5%));
 	}
 
+#product {
+	h2 {
+		margin: 0;
+		font-size: 2em;
+		font-weight: normal;
+	}
 
+	h3 {
+		margin: 0;
+		font-weight: normal;
+		color: @gray;
+		font-size: 1.25em;
+	}
+}
 
 
 
