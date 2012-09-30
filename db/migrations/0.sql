@@ -18,6 +18,12 @@ CREATE TABLE IF NOT EXISTS `item` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO item (`name`, `description`, `quantity`, `min_price`, `max_price`) VALUES ('iPhone', 'IPHONE', 1, 5, 300);
+INSERT INTO item (`name`, `description`, `quantity`, `min_price`, `max_price`) VALUES ('iPhone1', 'IPHONE', 1, 5, 300);
+INSERT INTO item (`name`, `description`, `quantity`, `min_price`, `max_price`) VALUES ('iPhone2', 'IPHONE', 1, 5, 300);
+INSERT INTO item (`name`, `description`, `quantity`, `min_price`, `max_price`) VALUES ('iPhone3', 'IPHONE', 1, 5, 300);
+INSERT INTO item (`name`, `description`, `quantity`, `min_price`, `max_price`) VALUES ('iPhone4', 'IPHONE', 1, 5, 300);
+
 
 DROP TABLE IF EXISTS `image`;
 CREATE TABLE IF NOT EXISTS `image` (
